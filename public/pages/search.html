@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Restaurants</title>
+</head>
+<body>
+
+  <h1>Search for Restaurants</h1>
+  <div>
+    <input type="text" id="search" placeholder="Search by name or cuisine">
+    <button onclick="searchRestaurants()">Search</button>
+  </div>
+
+  <ul id="restaurantList">
+    <!-- Dynamically populated restaurant list -->
+  </ul>
+
+  <script>
+    function searchRestaurants() {
+      const searchQuery = document.getElementById('search').value;
+      // Mocking a search result
+      const restaurants = [
+        { name: 'Pizza Place' },
+        { name: 'Burger Joint' }
+      ];
+
+      const list = document.getElementById('restaurantList');
+      list.innerHTML = '';
+      restaurants.forEach(restaurant => {
+        const li = document.createElement('li');
+        li.textContent = restaurant.name;
+        const orderBtn = document.createElement('button');
+        orderBtn.textContent = 'Place Order';
+        orderBtn.onclick = function() {
+          window.location.href = '/order'; // Redirect to the order page
+        };
+        li.appendChild(orderBtn);
+        list.appendChild(li);
+      });
+    }
+  </script>
+
+</body>
+</html>
+
+
+
