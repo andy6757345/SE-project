@@ -7,6 +7,7 @@ Browse restaurants, search for dishes, and place orders.
 Make payments through a responsive UI.
 It includes both server-side and client-side code, with automated tests to verify critical functionality.
 
+# Directory Structure
 Directory Structure:
 food-delivery/
 ├── node_modules/          # Installed dependencies
