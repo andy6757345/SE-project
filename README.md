@@ -8,7 +8,7 @@ Make payments through a responsive UI.
 It includes both server-side and client-side code, with automated tests to verify critical functionality.
 '''
 # Directory Structure
-Please veiw directory Structure in code for proper understanding 
+# Please view directory Structure in code for proper understanding 
 food-delivery/
 ├── node_modules/          # Installed dependencies
 ├── public/                # Static files for the frontend
