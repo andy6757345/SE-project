@@ -6,7 +6,7 @@ Register and log in.
 Browse restaurants, search for dishes, and place orders.
 Make payments through a responsive UI.
 It includes both server-side and client-side code, with automated tests to verify critical functionality.
-
+'''
 # Directory Structure
 
 food-delivery/
@@ -34,7 +34,7 @@ food-delivery/
 ├── package-lock.json      # Dependency lock file
 ├── .gitignore             # Git ignore file
 └── README.md              # Instructions and project details
-#
+'''
 Setup Instructions:
 1. Server Code Dependencies:
 The server is built with Express and uses body-parser for parsing the request bodies. You also need path for serving HTML files.
