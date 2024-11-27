@@ -8,35 +8,29 @@
 <body>
 
   <h1>Search for Restaurants</h1>
-  <div>
-    <input type="text" id="search" placeholder="Search by name or cuisine">
-    <button onclick="searchRestaurants()">Search</button>
-  </div>
+  <input type="text" id="search" placeholder="Search by name or cuisine" />
+  <button onclick="searchRestaurants()">Search</button>
 
-  <ul id="restaurantList">
-    <!-- Dynamically populated restaurant list -->
-  </ul>
+  <ul id="restaurantList"></ul>
+
+  <button onclick="window.location.href='/order'">Next</button>
 
   <script>
-    function searchRestaurants() {
-      const searchQuery = document.getElementById('search').value;
-      // Mocking a search result
-      const restaurants = [
-        { name: 'Pizza Place' },
-        { name: 'Burger Joint' }
-      ];
+    const restaurants = [
+      { name: "Pizza Place" },
+      { name: "Burger Joint" },
+      { name: "Sushi Spot" }
+    ];
 
-      const list = document.getElementById('restaurantList');
+    function searchRestaurants() {
+      const query = document.getElementById("search").value.toLowerCase();
+      const filtered = restaurants.filter(r => r.name.toLowerCase().includes(query));
+
+      const list = document.getElementById("restaurantList");
       list.innerHTML = '';
-      restaurants.forEach(restaurant => {
-        const li = document.createElement('li');
-        li.textContent = restaurant.name;
-        const orderBtn = document.createElement('button');
-        orderBtn.textContent = 'Place Order';
-        orderBtn.onclick = function() {
-          window.location.href = '/order'; // Redirect to the order page
-        };
-        li.appendChild(orderBtn);
+      filtered.forEach(r => {
+        const li = document.createElement("li");
+        li.textContent = r.name;
         list.appendChild(li);
       });
     }

@@ -7,16 +7,35 @@
 </head>
 <body>
 
-  <h1>Make Payment</h1>
+  <h1>Enter Payment Details</h1>
 
-  <div>
-    <h2>Payment Details</h2>
-    <!-- Payment details form goes here -->
-  </div>
+  <form id="paymentForm">
+    <input type="text" id="cardNumber" placeholder="Card Number" required />
+    <input type="text" id="expiryDate" placeholder="Expiry Date" required />
+    <input type="text" id="cvv" placeholder="CVV" required />
+    <button type="submit">Pay</button>
+  </form>
 
-  <button>Confirm Payment</button>
+  <script>
+    document.getElementById('paymentForm').addEventListener('submit', function(event) {
+      event.preventDefault();  // Prevent form from submitting the traditional way
+
+      const cardNumber = document.getElementById('cardNumber').value;
+      const expiryDate = document.getElementById('expiryDate').value;
+      const cvv = document.getElementById('cvv').value;
+
+      // Simple validation (check if all fields are filled)
+      if (cardNumber && expiryDate && cvv) {
+        alert("Payment Successful!"); // Simulate the alert
+        window.location.href = '/'; // Redirect after success
+        console.log('Valid Payment: 200 true'); // Log the successful condition
+      } else {
+        alert("Payment Failed!"); // If data is missing, fail the payment
+        console.log('Valid Payment: 200 false'); // Log failure
+      }
+    });
+  </script>
 
 </body>
 </html>
-
 

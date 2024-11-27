@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Dashboard</title>
+</head>
+<body>
+
+  <h1>Welcome, Restaurant</h1>
+  <h2>Manage Orders</h2>
+
+  <div id="orders">
+    <p>Loading orders...</p>
+  </div>
+
+  <script>
+    async function fetchOrders() {
+      const response = await fetch('/restaurant-orders');
+      const orders = await response.json();
+
+      const ordersDiv = document.getElementById('orders');
+      ordersDiv.innerHTML = '';
+
+      if (orders.length === 0) {
+        ordersDiv.innerHTML = '<p>No new orders.</p>';
+        return;
+      }
+
+      orders.forEach(order => {
+        const orderDiv = document.createElement('div');
+        orderDiv.innerHTML = `
+          <p>Order ID: ${order.id}</p>
+          <p>Items: ${order.items.join(', ')}</p>
+          <button onclick="updateOrder(${order.id}, 'accepted')">Accept</button>
+          <button onclick="updateOrder(${order.id}, 'rejected')">Reject</button>
+        `;
+        ordersDiv.appendChild(orderDiv);
+      });
+    }
+
+    async function updateOrder(orderId, status) {
+      const response = await fetch('/update-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ orderId, status })
+      });
+      const result = await response.json();
+      alert(result.message);
+      fetchOrders();
+    }
+
+    fetchOrders();
+  </script>
+
+</body>
+</html>

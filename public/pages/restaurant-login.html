@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Login</title>
+</head>
+<body>
+
+  <h1>Restaurant Login</h1>
+
+  <!-- Login Form -->
+  <h2>Login</h2>
+  <form action="/restaurant-login" method="POST">
+    <input type="text" name="restaurantName" placeholder="Restaurant Name" required />
+    <input type="password" name="password" placeholder="Password" required />
+    <button type="submit">Login</button>
+  </form>
+
+  <!-- Registration Form -->
+  <h2>Register</h2>
+  <form action="/restaurant-register" method="POST">
+    <input type="text" name="restaurantName" placeholder="Restaurant Name" required />
+    <input type="password" name="password" placeholder="Password" required />
+    <button type="submit">Register</button>
+  </form>
+
+</body>
+</html>
